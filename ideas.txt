@@ -1,0 +1,35 @@
+-Assume for all floors below, add previous floor qualities
+
+floor 50-45
+	-Normal enemies
+		-"Employees"
+		-Gaurds
+	-Wave 45 Boss
+		-Head Body gaurd
+			-Big
+			-Punches ground which causes shockwave through some blocks
+			-
+Floor 45-40
+	-Alarm gets triggered
+	-Some floors get locked down, and you need a key to get out
+		-Some enemies will be holding the key, and you have to kill them
+	-Harder to break blocks
+	-Robot deathworms
+	-Drone type enemies that fly around and have machine guns
+	-Wave 40 Boss
+		-
+Floor 40-35
+	-Self replicating flying robots
+	-Harder to break blocks
+	-Wave 35 Boss
+		-
+Floor 35-30
+	-Wall mounted missle launchers
+		-Can destroy by destroying the block that it is on
+	-Harder to destroy blocks
+Floor 30-25
+	
+
+
+STEVE JOB'S BOSS
+barf money burn

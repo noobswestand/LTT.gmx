@@ -1,0 +1,111 @@
+ratchet and clank weapons
+
+plasma whip (http://ratchet.wikia.com/wiki/Plasma_Whip)
+Dicer (http://ratchet.wikia.com/wiki/Chopper)
+Spitting Hydra(rename)  (http://ratchet.wikia.com/wiki/Spitting_Hydra)
+	-Lock on multiple enemies
+	-Fire like 15 shots----bullets with trails.  look at picture
+
+
+
+Make spikes!
+
+-fix light saber 0degs to 360degs problem
+
+
+
+mantis bug tracker
+
+
+rubber band gun
+
+gravity gun???
+
+easter eggs
+	-spawn with terrain
+	-can break open
+
+
+
+-ninjas?
+
+-make intro game more dramatic with thunder+rain+wind?
+
+
+-Ray gun
+	-Shoots a sine wave
+	-Goes straight through walls, and enemies
+	-Overheats monsters+ explodes them!
+
+
+-Gravity glove
+	-You can pick up enemies, and fling them around
+
+
+
+-auto meele for mobile?
+
+
+
+-Another boss(chest boss)
+	-3 stages, bronze, silver, and gold
+	-each stage has more health
+
+
+
+
+
+
+-website?
+
+
+
+ducking?
+
+
+
+-Lemon pledge gun
+-dubstep gun
+
+
+-Make luke's rage work in MP
+
+
+
+-Add ice blocks
+-Redraw snow blocks
+
+-PowerUP Ideas
+	-Block Breaker--break the locked blocks
+
+
+-terrain
+	-Spikes--hidden, until you step on them
+	-spinning spike balls on chains
+	-Hidden flame throwers---tanks of gass are hidden in the ground. If you mine them out, you can explode them
+
+
+-"Wave system"
+	-crap ton of drones and stuff
+
+
+
+
+
+
+
+
+-Stronger "Steel" Worms
+-deeper stuff
+	-floor 25-50--cool down. Icey+snowflakes
+	-floor 50-??--Heating up+ melting rocks+shader in epic game to make things wavey
+	
+
+
+-More characters to choose from
+	-Austin Evens
+
+think of names
+	-EA/Ubisoft Diggers---dig deep into the evil corporations headquaters
+
+
