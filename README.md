@@ -1,5 +1,7 @@
 # LMG Adventures
 Please view the RAW for proper format
+If you want to become a contributor, PM me
+
 
 
 
