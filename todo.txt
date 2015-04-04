@@ -8,8 +8,6 @@ Spitting Hydra(rename)  (http://ratchet.wikia.com/wiki/Spitting_Hydra)
 
 
 
-Make spikes!
-
 -fix light saber 0degs to 360degs problem
 
 

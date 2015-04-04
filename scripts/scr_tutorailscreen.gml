@@ -1,3 +1,5 @@
 ///scr_tutorailscreen(gun)
-obj_tuthelp.tut=argument0
-if global.ONLINE=false{obj_pause.pause=true}
+if QUICKTEST=false{
+    obj_tuthelp.tut=argument0
+    if global.ONLINE=false{obj_pause.pause=true}
+}

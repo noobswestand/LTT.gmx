@@ -74,6 +74,13 @@ if gamepad_get_device_count()&gt;0
     gamepad_set_vibration(0,1,1)
     obj_pause.alarm[0]=5
 }
+if instance_exists(obj_spikes){
+    with(obj_spikes){
+        event_user(0)
+    }
+}
+
+
 </string>
           </argument>
         </arguments>

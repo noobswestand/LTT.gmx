@@ -68,8 +68,9 @@ for(i=16;i<room_width/2;i+=16){
             //global.gunheight=((room_height-16)-starth);
         }
         
+    //Spawn some monsters to make it more real
     if global.ONLINE=false && object_index=global.RoomGenObj{
-        //Spawn some monsters to make it more real
+        
         if irandom(obj_spawn.spawnrate/6)=0{
             nn=instance_create(i+8,(room_height-16)-starth-8,obj_monster0)
             nn=instance_create((room_width-16)-i+8,(room_height-16)-starth-8,obj_monster0)
@@ -86,8 +87,22 @@ for(i=16;i<room_width/2;i+=16){
     
     }
     for(a=(room_height-16)-starth;a<(room_height-16);a+=16){
-        if place_free(i,a){instance_create(i,a,mat)}
-        if place_free((room_width-16)-i,a){instance_create((room_width-16)-i,a,mat)}
+        if place_free(i,a){
+            instance_create(i,a,mat)
+            if irandom(16)=0{
+                if place_free(i,a-16){
+                    instance_create(i,a,obj_spikes)
+                }
+            }
+        }
+        if place_free((room_width-16)-i,a){
+            instance_create((room_width-16)-i,a,mat)
+            if irandom(16)=0{
+                if place_free((room_width-16)-i,a-16){
+                    instance_create((room_width-16)-i,a-16,obj_spikes)
+                }
+            }
+        }
     }
 }
 

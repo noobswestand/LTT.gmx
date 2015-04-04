@@ -70,7 +70,13 @@ repeat(sentryAmount){
     nn.monsterid=monsID
     global.MonsterList[nn.monsterid]=nn
 }
-
+var spikeAmount=readshort()
+repeat(spikeAmount){
+    var xx,yy;
+    xx=readushort();
+    yy=readushort();
+    nn=instance_create(xx,yy,obj_spikes)
+}
 
 var gunh=readshort()
 if obj_control._floor=1{

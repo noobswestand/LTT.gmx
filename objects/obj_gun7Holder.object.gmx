@@ -75,11 +75,14 @@ repeat(5){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xxstart=0
+            <string>player=-1
+
+xxstart=0
 yystart=0
 
 xx[0] = x 
 yy[0] = y 
+vel[0]=0
 
 
 grav = 5 //gravity strenght
@@ -93,11 +96,37 @@ repeat sg
 i+=1
 xx[i] = xx[0]
 yy[i] = yy[0]
-
+vel[i]=vel[0]
 }
 
 
-t=sprite_get_texture(spr_rope,0)
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if instance_exists(obj_control)
+&amp;&amp; instance_exists(player){
+    x=player.x+lengthdir_x(10,obj_control.PlayerMouseRot)
+    y=player.y+lengthdir_y(10,obj_control.PlayerMouseRot)
+}
 </string>
           </argument>
         </arguments>
@@ -120,59 +149,89 @@ t=sprite_get_texture(spr_rope,0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>xxstart=x
+            <string>for(i=0;i&lt;=sg;i++){
+
+    xxpre[i]=xx[i]
+    yypre[i]=yy[i]
+}
+
+xxstart=x
 yystart=y
 
-length = 0
-
-dis = point_distance(xx[0],yy[0],xxstart,yystart)  /////    updating first segment
-dir = point_direction(xx[0],yy[0],xxstart,yystart)    //  
-                                                      // mouse_x and mouse_y are the starting points
-if dis &gt; len then                                     // of the very top of the cloth we make
-   {                                                  //
-   xx[0]+= lengthdir_x(dis-len,dir)                   //
-   yy[0]+= lengthdir_y(dis-len,dir)                   //
-   }                                                  //
-yy[0] += grav;                                     /////  yy += grav; is for adding gravity
 
 
+dis = point_distance(xx[0],yy[0],xxstart,yystart)
+dir = point_direction(xx[0],yy[0],xxstart,yystart)   
 
-i=0                                               //////
-repeat sg                                             //  updating every other segmrn
-{                                                     //  the sme way as the first one
-i+=1                                                  //
-                                                      //
-dis = point_distance(xx[i],yy[i],xx[i-1],yy[i-1])     //
-dir = point_direction(xx[i],yy[i],xx[i-1],yy[i-1])    //
-                                                      //
-if dis &gt; len then                                     //
-   {                                                  //
-   xx[i]+= lengthdir_x(dis-len,dir)                   //
-   yy[i]+= lengthdir_y(dis-len,dir)                   //
-   }                                                  //
-                                                      //
-yy[i] += grav;                                        //
-                                            //////
+                                                  
+                                    
+var displacex=xxstart-xx[0];
+var displacey=yystart-yy[0];
+//show_message(tan(degtorad(clamp(displacey,0.000000000010,44)/clamp(displacex,0.001,9999))))
+vel[0]=displacey/clamp(arcsin(clamp(tan(degtorad(clamp(displacey,0.000000000010,44)/clamp(displacex,0.001,9999))),-1,1)),.001,9999)
+
+xx[0]+=vel[0]*cos(degtorad(dir))
+yy[0]+=vel[0]*sin(degtorad(dir))                 
 
 
+if dis &gt; len then                                     
+   {                                                  
+   xx[0]+= lengthdir_x(dis-len,dir)                   
+   yy[0]+= lengthdir_y(dis-len,dir)                   
+   }
+yy[0] += 1;
+
+
+
+i=0                                               
+repeat sg                                             
+{                                                     
+i+=1                                                  
+                                                      
+dis = point_distance(xx[i],yy[i],xx[i-1],yy[i-1])     
+dir = point_direction(xx[i],yy[i],xx[i-1],yy[i-1])
+if i=sg{
+    vel[i]=vel[i-1]//mean(vel[i],vel[i-1])
+}else{
+    vel[i]=vel[i-1]//mean(vel[i],vel[i+1],vel[i-1])
+}
+
+                                                    
+                                           
+                                                  
+var displacex=(xxpre[i]-xx[i]);
+var displacey=(yypre[i]-yy[i]);
+vel[i]=tan(displacey/clamp(displacex,0.001,9999))                                      
+xx[i]+=vel[i]*cos(degtorad(dir))
+yy[i]+=vel[i]*sin(degtorad(dir))
+
+yy[i] += i;                                       
+
+
+if dis &gt; len then                                     
+   {                                                  
+   xx[i]+= lengthdir_x(dis-len,dir)                   
+   yy[i]+= lengthdir_y(dis-len,dir)                   
+   }      
 
 if instance_exists(par_block){
 c = instance_nearest(xx[i],yy[i],par_block) 
-                                           
-                                                  
-                                                   
-                                                       
-if point_distance(c.x,c.y,xx[i],yy[i]) &lt; c.r
-{
-xx[i] = c.x+lengthdir_x(max(point_distance(c.x,c.y,xx[i],yy[i]),c.r),point_direction(c.x,c.y,xx[i],yy[i]))
-yy[i] = c.y+lengthdir_y(max(point_distance(c.x,c.y,xx[i],yy[i]),c.r),point_direction(c.x,c.y,xx[i],yy[i]))
-//if point_distance(c.x,c.y,xx[i],yy[i])&lt;c.r/1.1{ with(c){instance_destroy()}}
-}
-else
-{   
-//yy[i] += grav;
-}
 
+
+if yy[i]&gt;c.y
+&amp;&amp; yy[i]&lt;c.y+16
+{//&amp;&amp; point_distance(xx[i],yy[i],c.x+8,c.y+8)&lt;=16
+    yy[i]=c.y
+}
+/*
+//xColl
+if yy[i]&gt;c.y
+&amp;&amp; xx[i]&gt;c.x
+&amp;&amp; xx[i]&lt;c.x+16{
+    xx[i]=c.x
+}         
+  */                                                
+                                                   
 }
 
 }
@@ -198,20 +257,19 @@ else
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_set_color(c_white); //Konstantine: ...or else we 'll get a black flag
-; //Konstantine: this is our texture
-draw_primitive_begin_texture(pr_trianglestrip,t);
-draw_vertex_texture(xxstart,yystart,0,0);                                                                                                                                                //////
-draw_vertex_texture(xxstart+5,yystart,1,0); //Konstantine: flag dimensions: 32x256                                                                                                                                               //////
-i=0                                      //
-repeat sg                                //   drawing the other segments
-{                                        
-i+=1                                     
-draw_vertex_texture(xx[i],yy[i],0,i/sg);                                                                                                                                                //////
-draw_vertex_texture(xx[i]+5,yy[i],1,i/sg);
-}                                        //
-                                     //////
-draw_primitive_end();
+            <string>if instance_exists(obj_control){
+    if obj_control.gunshovel=1{
+        draw_set_colour(c_aqua)
+        draw_set_alpha(1)
+        var i=0;
+        draw_line_width(x,y,xx[0],yy[0],3)
+        repeat sg
+        {          
+        draw_line_width(xx[i],yy[i],xx[i+1],yy[i+1],3)
+        i+=1
+        }
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -229,5 +287,8 @@ draw_primitive_end();
   <PhysicsObjectFriction>0.200000002980232</PhysicsObjectFriction>
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
-  <PhysicsShapePoints/>
+  <PhysicsShapePoints>
+    <point>8,8</point>
+    <point>8,8</point>
+  </PhysicsShapePoints>
 </object>

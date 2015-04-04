@@ -65,6 +65,13 @@ for(nn=-32;nn<32;nn+=16){
             }    
         }
     }else{
-        if place_free(xxx+nn,yyy-16){instance_create(xxx+nn,yyy-16,obj)}
+        if place_free(xxx+nn,yyy-16){
+            instance_create(xxx+nn,yyy-16,obj)
+            if irandom(4)=0{
+                if place_free(xxx+nn,yyy-32){
+                    instance_create(xxx+nn,yyy-32,obj_spikes)
+                }
+            }
+        }
     }
 }

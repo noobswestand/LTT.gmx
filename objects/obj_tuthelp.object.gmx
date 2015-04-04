@@ -680,7 +680,7 @@ if instance_exists(obj_highscoresign){
         doubleclick+=1
         alarm[10]=room_speed/2
     }
-    if doubleclick=2 or gamepad_button_check_pressed(0,gp_face4){
+    if doubleclick=2 or gamepad_button_check_pressed(0,gp_face4) or keyboard_check_pressed(vk_escape){
         for(i=0;i&lt;9;i+=1){
             yytimer[i]=(i*2)
             yygoal[i]=room_height*-1
@@ -929,29 +929,33 @@ if (GamePlayHelpScreens=false &amp;&amp; (tut!=999 &amp;&amp; tut!=998)) &amp;&a
     tut=-1
 }
 
+
 if tut!=-1{
+    var draw=false;
     if tut!=998{obj_pause.PauseDraw=false}
     switch(tut){
         case 0:
-            scr_electrichelp()
+            scr_electrichelp() draw=true
         break;
         
         case 1:
-            scr_tntlaunchhelp()
+            scr_tntlaunchhelp() draw=true
         break;
         
         case 2:
-            scr_flamehelp()
+            scr_flamehelp() draw=true
         break;
         
         case 3:
-            scr_misslehelp()
+            scr_misslehelp() draw=true
         break;
         
         case 4:
-            scr_plasmahelp()
+            scr_plasmahelp() draw=true
         break;
         
+        case 998: draw=true break;
+        case 999: draw=true break;
         
         /*
         case 999:
@@ -959,6 +963,7 @@ if tut!=-1{
         break;
         */
     }
+    if draw=false{tut=-1 obj_pause.pause=false}
 }
 </string>
           </argument>

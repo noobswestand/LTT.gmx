@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>value=10
 
-image_index=irandom(7)
+image_index=irandom(12)
 image_speed=0
 gravity=0.25
 friction=0.1
