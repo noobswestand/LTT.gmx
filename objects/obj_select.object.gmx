@@ -144,7 +144,7 @@ person[7,6]=0//alpha
 
 person[8,0]=" Rumble"//Name
 person[8,1]=" Just another cat#trying to get by"//Description
-person[8,2]=spr_player_11idle  person[8,8]="Beat the first boss with only meele" person[8,10]=1//Unlock
+person[8,2]=spr_player_11idle  person[8,8]="Defeat the first boss" person[8,10]=1//Unlock
 person[8,3]=1
 person[8,4]=0//xoff
 person[8,5]=0//yoff

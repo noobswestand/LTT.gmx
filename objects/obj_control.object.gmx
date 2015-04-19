@@ -189,21 +189,29 @@ gun6[8]=0
 gun7[8]=0
 gun8Speed=0
 
-gun1[9]="Plasma Coil"//name
+gun1[9]="Bouncer"//name
 gun2[9]=obj_gun8
 gun3[9]=1//scale
 gun4[9]=spr_gun8
-gun5[9]="What more could you want?! Its a LightSaber!"//name
+gun5[9]=""//name
 gun6[9]=0
 gun7[9]=0
 
-gun1[10]="Dicer"//name
+gun1[10]="Plasma Coil"//name
 gun2[10]=obj_gun8
 gun3[10]=1//scale
 gun4[10]=spr_gun8
-gun5[10]="Shred your enemies to bits!"//name
+gun5[10]="What more could you want?! Its a LightSaber!"//name
 gun6[10]=0
 gun7[10]=0
+
+gun1[11]="Dicer"//name
+gun2[11]=obj_gun8
+gun3[11]=1//scale
+gun4[11]=spr_gun8
+gun5[11]="Shred your enemies to bits!"//name
+gun6[11]=0
+gun7[11]=0
 
 
 
@@ -2051,7 +2059,8 @@ if room=rm_game{
     instance_create(304,96,shovelspawn)
     
     //sound_loop(snd_ambiantsound0)
-    audio_play_sound(snd_ambiantsound0,1,99)
+    audio_sound_set_track_position(snd_ambiantsound0,random(100))
+    audio_play_sound(snd_ambiantsound0,1,1)
     obj_sound.currentMainSound=snd_ambiantsound0
 }
 
@@ -2364,6 +2373,18 @@ if gun!=-1{
             default:
                 draw_sprite_ext(img,subimg,obj_player.x+lengthdir_x(10,dir),obj_player.y+lengthdir_y(10,dir),gunxscale,gunyscale*xscale,rot+dir,color,1)
             break;
+        }
+    }
+    //Light saber sound effect
+    if shovelanimate=false &amp;&amp; gunshovel=1{
+        if gun=8{
+            if !audio_is_playing(snd_gun8Idle){
+                audio_play_sound(snd_gun8Idle,2,99)
+            }
+        }
+    }else{
+        if audio_is_playing(snd_gun8Idle){
+            audio_stop_sound(snd_gun8Idle)
         }
     }
     

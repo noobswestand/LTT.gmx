@@ -519,6 +519,10 @@ if instance_exists(obj_control){
 
 
 if pause=1 &amp;&amp; spr=-1 &amp;&amp; global.ONLINE=false{
+    if obj_control.player_health&lt;=0{
+        pause=false
+        exit
+    }
     if os_type=os_android{
     screen_save("temp.png")
     spr=sprite_add("temp.png",0,0,0,0,0)

@@ -221,10 +221,11 @@ nn.image_yscale=image_yscale
 repeat(250) instance_create(x,y,obj_blood);
 repeat(50){instance_create(x,y,obj_gore)}
 
-
+/*
 if hitBullet=false{
     scr_unlockPlayerDown(11,1)
-}
+}*/
+scr_unlockPlayerDown(11,1)
 </string>
           </argument>
         </arguments>

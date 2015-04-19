@@ -11,29 +11,15 @@ Spitting Hydra(rename)  (http://ratchet.wikia.com/wiki/Spitting_Hydra)
 -fix light saber 0degs to 360degs problem
 
 
-
-mantis bug tracker
-
-
 rubber band gun
 
 gravity gun???
-
-easter eggs
-	-spawn with terrain
-	-can break open
-
 
 
 -ninjas?
 
 -make intro game more dramatic with thunder+rain+wind?
 
-
--Ray gun
-	-Shoots a sine wave
-	-Goes straight through walls, and enemies
-	-Overheats monsters+ explodes them!
 
 
 -Gravity glove
@@ -78,7 +64,6 @@ ducking?
 
 
 -terrain
-	-Spikes--hidden, until you step on them
 	-spinning spike balls on chains
 	-Hidden flame throwers---tanks of gass are hidden in the ground. If you mine them out, you can explode them
 

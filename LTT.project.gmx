@@ -83,6 +83,20 @@
           <sound>sound\snd_machine1</sound>
           <sound>sound\snd_machine2</sound>
         </sounds>
+        <sounds name="Saber">
+          <sound>sound\snd_gun8Idle</sound>
+          <sound>sound\snd_light0</sound>
+          <sound>sound\snd_light2</sound>
+          <sound>sound\snd_light3</sound>
+          <sound>sound\snd_light4</sound>
+          <sound>sound\snd_light5</sound>
+          <sound>sound\snd_light1</sound>
+          <sound>sound\snd_light6</sound>
+          <sound>sound\snd_lightSwing0</sound>
+          <sound>sound\snd_lightSwing1</sound>
+          <sound>sound\snd_lightSwing2</sound>
+          <sound>sound\snd_lightSwing3</sound>
+        </sounds>
       </sounds>
       <sounds name="Interface">
         <sounds name="Menu">
@@ -582,17 +596,6 @@
     <script>scripts\scr_speedCalc.gml</script>
     <script>scripts\place_meeting3.gml</script>
     <script>scripts\point_distance2.gml</script>
-    <scripts name="Trail">
-      <script>scripts\trail_create.gml</script>
-      <script>scripts\trail_update.gml</script>
-      <script>scripts\trail_add_line.gml</script>
-      <script>scripts\trail_add_null.gml</script>
-      <script>scripts\trail_resize.gml</script>
-      <script>scripts\trail_drift.gml</script>
-      <script>scripts\trail_scatter.gml</script>
-      <script>scripts\draw_trail.gml</script>
-      <script>scripts\collision_trail.gml</script>
-    </scripts>
     <script>scripts\scr_changePlayerSprite.gml</script>
     <script>scripts\scr_drawPlayerShovel.gml</script>
     <script>scripts\scr_unlockPlayer.gml</script>
@@ -662,6 +665,9 @@
           <objects name="8">
             <object>objects\obj_gun8</object>
             <object>objects\obj_bullet8</object>
+          </objects>
+          <objects name="9">
+            <object>objects\obj_gun9</object>
           </objects>
           <object>objects\obj_controlshell</object>
           <object>objects\par_shell</object>

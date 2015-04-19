@@ -168,11 +168,10 @@ dir = point_direction(xx[0],yy[0],xxstart,yystart)
 var displacex=xxstart-xx[0];
 var displacey=yystart-yy[0];
 //show_message(tan(degtorad(clamp(displacey,0.000000000010,44)/clamp(displacex,0.001,9999))))
-vel[0]=displacey/clamp(arcsin(clamp(tan(degtorad(clamp(displacey,0.000000000010,44)/clamp(displacex,0.001,9999))),-1,1)),.001,9999)
-
+/*vel[0]=displacey/clamp(arcsin(clamp(tan(degtorad(clamp(displacey,0.000000000010,44)/clamp(displacex,0.001,9999))),-1,1)),.001,9999)
 xx[0]+=vel[0]*cos(degtorad(dir))
 yy[0]+=vel[0]*sin(degtorad(dir))                 
-
+*/
 
 if dis &gt; len then                                     
    {                                                  
@@ -190,21 +189,22 @@ i+=1
                                                       
 dis = point_distance(xx[i],yy[i],xx[i-1],yy[i-1])     
 dir = point_direction(xx[i],yy[i],xx[i-1],yy[i-1])
+/*
 if i=sg{
     vel[i]=vel[i-1]//mean(vel[i],vel[i-1])
 }else{
     vel[i]=vel[i-1]//mean(vel[i],vel[i+1],vel[i-1])
-}
+}*/
 
                                                     
                                            
                                                   
 var displacex=(xxpre[i]-xx[i]);
 var displacey=(yypre[i]-yy[i]);
-vel[i]=tan(displacey/clamp(displacex,0.001,9999))                                      
+/*vel[i]=tan(displacey/clamp(displacex,0.001,9999))                                      
 xx[i]+=vel[i]*cos(degtorad(dir))
 yy[i]+=vel[i]*sin(degtorad(dir))
-
+*/
 yy[i] += i;                                       
 
 

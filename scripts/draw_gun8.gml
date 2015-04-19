@@ -21,6 +21,14 @@ repeat(gun8Speed){
     tmp++
 }
 
+if gun8Speed>50{
+    if !audio_is_playing(snd_lightSwing0)
+    && !audio_is_playing(snd_lightSwing1)
+    && !audio_is_playing(snd_lightSwing2)
+    && !audio_is_playing(snd_lightSwing3){
+        audio_play_sound(choose(snd_lightSwing0,snd_lightSwing1,snd_lightSwing2,snd_lightSwing3),5,0)
+    }
+}
 
 
 
