@@ -295,7 +295,7 @@ if file_exists("settings.ini"){
             <string>///HighScores
 
 GetHigh=-1
-GetHigh=http_get("http://65.27.50.201/GetHigh.php?act=GetTop")
+GetHigh=http_get(IP+"GetHigh.php?act=GetTop")
 MaxPlayers=0
 for(i=0;i&lt;4;i+=1){
     highx[i]=0

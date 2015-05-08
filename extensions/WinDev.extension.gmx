@@ -32,6 +32,7 @@ http://yal.cc/gamemaker-windows-functions-for-gamemaker-studio</description>
       <init></init>
       <final></final>
       <kind>1</kind>
+      <uncompress>0</uncompress>
       <ConfigOptions>
         <Config name="Default">
           <CopyToMask>49385710</CopyToMask>

@@ -833,9 +833,7 @@
       <room>rooms\rm0</room>
     </rooms>
   </rooms>
-  <constants number="13">
-    <constant name="GM_build_date">41986.784637662</constant>
-    <constant name="GM_version">'2.0.0.2'</constant>
+  <constants number="12">
     <constant name="LAUNCHTWO">0</constant>
     <constant name="ONLINE2">0</constant>
     <constant name="SERVERIP">"127.0.0.1"</constant>
@@ -847,6 +845,7 @@
     <constant name="PARTY">0</constant>
     <constant name="BLOOD2">1</constant>
     <constant name="EASTER">1</constant>
+    <constant name="IP">"http://65.27.55.168/"</constant>
   </constants>
   <help>
     <rtf>help.rtf</rtf>

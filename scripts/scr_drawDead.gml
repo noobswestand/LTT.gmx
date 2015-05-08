@@ -113,7 +113,7 @@ if player_health<=0 && global.ONLINE=false{
         "&"+encrypt("score")+"="+encrypt(string(Score))+"&"+encrypt("floor")+"="+encrypt(string(_floor/moneyCheckMult))+"&"+encrypt("money")+"="+encrypt(string(maxMoney/moneyCheckMult))+
         "&"+encrypt("monster")+"="+encrypt(string(MonstersKilled))+"&"+encrypt("chest")+"="+encrypt(string(ChestsOpened)))
         */
-        GetKeyValue2=http_get_file("http://65.27.50.201/high_score.php?"+encrypt2("act")+"="+encrypt2("GetTime"),"prog.txt")
+        GetKeyValue2=http_get_file(IP+"high_score.php?"+encrypt2("act")+"="+encrypt2("GetTime"),"prog.txt")
         
     }
     shovel=-1

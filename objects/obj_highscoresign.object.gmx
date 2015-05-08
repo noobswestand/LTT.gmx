@@ -31,7 +31,7 @@
 gravity=0.25
 image_speed=0
 
-get=http_post_string("http://65.27.50.201/highscore.php?",encrypt2("act")+"=+"+encrypt2("GetHigh2"))
+get=http_post_string(IP+"highscore.php?",encrypt2("act")+"=+"+encrypt2("GetHigh2"))
 
 Name="Null"
 Score=-1

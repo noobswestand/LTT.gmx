@@ -324,7 +324,7 @@ if file_exists("update.txt"){
     file_text_close(file)
 }
 getFile=-1
-//getFile=http_get_file("http://65.27.50.201/update.txt","update.txt")
+//getFile=http_get_file(IP+"update.txt","update.txt")
 
 
 

@@ -422,7 +422,7 @@ global.GamePadMouse=0
 
 
 global.Insult="&lt;insult&gt;"
-insultGet=-1//http_get("http://65.27.50.201/insult.php")
+insultGet=-1//http_get(IP+"insult.php")
 
 </string>
           </argument>
@@ -1880,7 +1880,7 @@ if ds_map_find_value(async_load, "id") == GetKeyValue2 &amp;&amp; obj_tuthelp.Ge
         file_bin_close(file)
         global.OffSet=real((rc4(testText,"xPWnLVha3kNSYsPFTXg72Xna")))
        //show_message(global.OffSet)
-        SubmitScore=http_post_string("http://65.27.50.201/highscore.php?",encrypt2("act")+"="+encrypt2("Submit")+"&amp;"+encrypt("name")+"="+string(encrypt(global.PlayerName))+
+        SubmitScore=http_post_string(IP+"highscore.php?",encrypt2("act")+"="+encrypt2("Submit")+"&amp;"+encrypt("name")+"="+string(encrypt(global.PlayerName))+
         "&amp;"+encrypt("char")+"="+encrypt(string(global.char))+
         "&amp;"+encrypt("score")+"="+encrypt(string(Score/moneyCheckMult))+"&amp;"+encrypt("floor")+"="+encrypt(string(_floor/moneyCheckMult))+"&amp;"+encrypt("money")+"="+encrypt(string(maxMoney/moneyCheckMult))+
         "&amp;"+encrypt("monster")+"="+encrypt(string(MonstersKilled))+"&amp;"+encrypt("chest")+"="+encrypt(string(ChestsOpened)))
@@ -1901,7 +1901,7 @@ if ds_map_find_value(async_load, "id") == SubmitScore
        r_str = ds_map_find_value(async_load, "result");
        if r_str="failed"{//show_message("Failed...")
             //do it again  :D
-            GetKeyValue2=http_get_file("http://65.27.50.201/high_score.php?"+encrypt2("act")+"="+encrypt2("GetTime"),"prog.txt")
+            GetKeyValue2=http_get_file(IP+"high_score.php?"+encrypt2("act")+"="+encrypt2("GetTime"),"prog.txt")
        }
        
        }

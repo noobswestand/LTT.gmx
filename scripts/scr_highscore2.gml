@@ -401,7 +401,7 @@ if sortGo=false{
                     sortType=sortl[i]
                     sortGo=false
                    
-                     var str="http://65.27.50.201/GetHigh.php?act=";
+                     var str=IP+"GetHigh.php?act=";
                     switch(i){
                         case 0: str+="GetTop" break;
                         case 1: str+="GetBottom" break;
