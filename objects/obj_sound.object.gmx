@@ -93,7 +93,7 @@ for(i=0;i&lt;1000;i++){
             <string>if obj_control.alarm[4]!=-1{
    scr_draw_god_rays2(obj_player.x,obj_player.y,8,current_time/10,0.2,c_yellow)
 }
-
+if OPTIMIZE=true{
 with(obj_control){
     if !surface_exists(BlockSurface)
     {
@@ -117,7 +117,7 @@ with(obj_control){
         }
     }
 }
-
+}
 </string>
           </argument>
         </arguments>

@@ -39,6 +39,7 @@ if window_get_fullscreen()=true{
 
 
 r=16
+if OPTIMIZE=false{visible=true}
 </string>
           </argument>
         </arguments>
@@ -446,7 +447,7 @@ if helth&lt;0 &amp;&amp; !instance_exists(obj_client){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
+            <string>
 if starthelth!=999999999{if crack=0{draw_enable_alphablend(false)}}
 if starthelth=999999999{draw_enable_alphablend(false)}
 
@@ -487,7 +488,6 @@ if starthelth!=999999999{
 }
 
 draw_enable_alphablend(true);
-*/
 
 </string>
           </argument>
