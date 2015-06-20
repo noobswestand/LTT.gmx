@@ -20,7 +20,8 @@ switch(argument[0]){
     case 10: txt="Nick the Other" num=7 txt2="Play One Multiplayer game with a friend" break;
     case 11: txt="Rumble" num=8 txt2="Defeat the first boss" break;
     
-    case 12: txt="Kane" num=4 txt2="Break 500 blocks" break;
+    case 12: txt="Mage Tank" num=4 txt2="Free" break;
+    case 13: txt="Kane" num=4 txt2="Break 500 blocks" break;
 }
 
 

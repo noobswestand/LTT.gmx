@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>select=1
 maxselect=8
-maxselect2=3//WAN
+maxselect2=4//WAN
 pselect=1
 jump=0
 type=1
@@ -207,6 +207,15 @@ Wperson[3,4]=0//xoff
 Wperson[3,5]=0//yoff
 Wperson[3,6]=0//alpha
 
+Wperson[4,0]=" Mage Tank"//Name
+Wperson[4,1]=" Exactly what it sounds like#Critical hits every time and 500% more health"//Description
+Wperson[4,2]=spr_player_12idle  Wperson[4,8]="Free!" Wperson[4,10]=0//Unlock
+Wperson[4,3]=1
+Wperson[4,4]=0//xoff
+Wperson[4,5]=0//yoff
+Wperson[4,6]=0//alpha
+scr_unlockPlayer(12)
+/*
 Wperson[4,0]=" Kane"//Name
 Wperson[4,1]=" 678768"//Description
 Wperson[4,2]=spr_player_5idle  Wperson[4,8]="Break 500 blocks. %VAR% to go" Wperson[4,10]=500//Unlock
@@ -222,7 +231,7 @@ Wperson[5,2]=spr_player_5idle
 Wperson[5,3]=1
 Wperson[5,4]=0//xoff
 Wperson[5,5]=0//yoff
-Wperson[5,6]=0//alpha
+Wperson[5,6]=0//alpha*/
 </string>
           </argument>
         </arguments>
@@ -1373,7 +1382,7 @@ if clickstart=true{
             case 1: global.char=3 break;
             case 2: global.char=4 break;
             case 3: global.char=5 break;
-            case 4: global.char=6 break;
+            case 4: global.char=12 break;
         }
         room_goto(rm_game)
         

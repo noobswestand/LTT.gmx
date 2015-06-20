@@ -194,6 +194,11 @@
             <sprite>sprites\spr_player_10run</sprite>
             <sprite>sprites\spr_player_10heal</sprite>
           </sprites>
+          <sprites name="12">
+            <sprite>sprites\spr_player_12idle</sprite>
+            <sprite>sprites\spr_player_12run</sprite>
+            <sprite>sprites\spr_player_12heal</sprite>
+          </sprites>
         </sprites>
         <sprites name="3">
           <sprite>sprites\spr_player_3run</sprite>

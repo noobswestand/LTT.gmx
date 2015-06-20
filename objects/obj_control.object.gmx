@@ -2115,6 +2115,12 @@ if room=rm_game{
             }
         break;
         
+        case 12:
+            obj_control.Crits=1
+            obj_control.player_health+=500
+            obj_control.player_maxhealth+=500
+        break;
+        
         
     }
     

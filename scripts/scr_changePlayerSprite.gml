@@ -76,4 +76,11 @@ switch(argument0){
     spr_run=spr_player_5run
     spr_heal=spr_player_5heal
     break;
+    
+    case 12:
+    spr_idle=spr_player_12idle
+    spr_run=spr_player_12run
+    spr_heal=spr_player_12heal
+    break;
+    
 }
