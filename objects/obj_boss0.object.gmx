@@ -210,9 +210,10 @@ nn.image_yscale=image_yscale
             <string>if instance_exists(obj_client){
     var ii;
     ii=irandom(obj_control.totalguns-1)
-    while(ii=obj_control.gun){
+    while(ii=obj_control.gun || ii=7){
         ii=irandom(obj_control.totalguns-1)
     }
+    
     instance_create(x,y-25,obj_control.gun2[ii])
     
 }

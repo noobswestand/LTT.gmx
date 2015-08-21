@@ -1,5 +1,5 @@
 ///scr_unlockPlayerDown(Player,amount)
-if obj_control.SubmitScores=true{
+if global.SubmitScores=true{
     var num=1;
     switch(argument[0]){
         case 1: num=1 break;

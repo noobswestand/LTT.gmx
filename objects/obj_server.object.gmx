@@ -31,7 +31,7 @@ instance_create(0,0,obj_UDP)
 var Type , Port , MaxClients;
 Type = network_socket_tcp;
 Port = 1224;
-MaxClients = 255;
+MaxClients = 25;
 
 //create listening things
 Server = network_create_server( Type , Port , MaxClients );

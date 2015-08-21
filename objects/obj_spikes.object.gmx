@@ -75,7 +75,7 @@ alarm[1]=1
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if !place_meeting(x,y+16,par_block){
+            <string>if !place_meeting(x,y+8,par_block){
     instance_destroy()
 }
 </string>

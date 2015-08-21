@@ -145,11 +145,18 @@ if global.AndriodPlay=false{
     draw_text_transformed(room_width-5,viewyy+(33*mult),"Floor "+string(scr_getnumber(_floor/moneyCheckMult)),0.5,0.5,0)
     draw_set_halign(fa_left)//ScoreMult
     draw_text_transformed(0,(viewyy+(20*mult))-(moneyScale*3),"$"+string(scr_getnumber(round(money/moneyCheckMult))),0.5*moneyScale,0.5*moneyScale,0)
-    if pScoreMult!=ScoreMult{
-        pScoreMult=ScoreMult
-        ScoreMultC=choose(c_white,c_red,c_blue,c_green,c_purple,c_orange,c_yellow)
-        ScoreMultR=irandom_range(-20,20)
-        ScoreMultS=5
+    if real(string_invert(pScoreMult))!=ScoreMult{
+        if ScoreMultEarn=true{
+            ScoreMultEarn=false
+            pScoreMult=string_invert(string(ScoreMult))
+            ScoreMultC=choose(c_white,c_red,c_blue,c_green,c_purple,c_orange,c_yellow)
+            ScoreMultR=irandom_range(-20,20)
+            ScoreMultS=5
+        }else{
+            global.SubmitScores=false
+            ScoreMult=real(string_invert(pScoreMult))
+            show_message("Please no hacks  :)")
+        }
     }
     if pScore!=round(Score/moneyCheckMult){
         Score+=(abs(pScore-round(Score/moneyCheckMult))*(ScoreMult-1))*moneyCheckMult

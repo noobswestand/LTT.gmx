@@ -618,7 +618,7 @@ if instance_exists(obj_block3){
           <argument>
             <kind>1</kind>
             <string>obj_control.player_health+=other.value
-obj_control.Score+=10
+obj_control.Score+=10*obj_control.moneyCheckMult
 if !audio_is_playing(snd_coin1)
 &amp;&amp; !audio_is_playing(snd_coin2){
 audio_play_sound(choose(snd_coin1,snd_coin2),10,0)}
@@ -647,7 +647,7 @@ with(other){instance_destroy()}
           <argument>
             <kind>1</kind>
             <string>global.keyGot=true
-obj_control.Score+=25
+obj_control.Score+=25*obj_control.moneyCheckMult
 
 //if !sound_isplaying(snd_coin1){sound_play(snd_coin1)}
 if !audio_is_playing(snd_coin1){

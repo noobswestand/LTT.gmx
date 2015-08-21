@@ -274,6 +274,8 @@
           </sprites>
           <sprites name="10">
             <sprite>sprites\spr_gun10</sprite>
+            <sprite>sprites\sprite181</sprite>
+            <sprite>sprites\spr_bullet10</sprite>
           </sprites>
         </sprites>
         <sprites name="PowerUps">
@@ -543,6 +545,7 @@
         <script>scripts\draw_sine.gml</script>
         <script>scripts\draw_gun8.gml</script>
         <script>scripts\draw_gun7.gml</script>
+        <script>scripts\draw_gun9.gml</script>
       </scripts>
       <scripts name="Particles">
         <script>scripts\scr_sparkle.gml</script>
@@ -673,6 +676,7 @@
           </objects>
           <objects name="9">
             <object>objects\obj_gun9</object>
+            <object>objects\obj_bullet9</object>
           </objects>
           <object>objects\obj_controlshell</object>
           <object>objects\par_shell</object>
@@ -849,7 +853,7 @@
     <constant name="QUICKTEST">0</constant>
     <constant name="PARTY">0</constant>
     <constant name="BLOOD2">1</constant>
-    <constant name="EASTER">1</constant>
+    <constant name="EASTER">0</constant>
     <constant name="IP">"http://65.27.55.168/"</constant>
     <constant name="OPTIMIZE">0</constant>
   </constants>

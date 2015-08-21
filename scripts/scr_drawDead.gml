@@ -113,7 +113,9 @@ if player_health<=0 && global.ONLINE=false{
         "&"+encrypt("score")+"="+encrypt(string(Score))+"&"+encrypt("floor")+"="+encrypt(string(_floor/moneyCheckMult))+"&"+encrypt("money")+"="+encrypt(string(maxMoney/moneyCheckMult))+
         "&"+encrypt("monster")+"="+encrypt(string(MonstersKilled))+"&"+encrypt("chest")+"="+encrypt(string(ChestsOpened)))
         */
-        GetKeyValue2=http_get_file(IP+"high_score.php?"+encrypt2("act")+"="+encrypt2("GetTime"),"prog.txt")
+        if global.SubmitScores=true{
+            GetKeyValue2=http_get_file(IP+"high_score.php?"+encrypt2("act")+"="+encrypt2("GetTime"),"prog.txt")
+        }
         
     }
     shovel=-1
@@ -123,6 +125,13 @@ if player_health<=0 && global.ONLINE=false{
     draw_set_alpha(1)
     draw_set_halign(fa_center)
     draw_text(room_width/2,(room_height/2)-125,"Fin")
+    
+    if global.SubmitScores=false{
+        draw_set_font(fnt_dead2)
+        draw_set_halign(fa_right)
+        draw_text_ext_transformed(room_width-5,5,"Your score was not submitted",0,99999,0.5,0.5,0)
+    }
+    
     if alarm[4]=-1{
         /*
         draw_set_font(global.font0)

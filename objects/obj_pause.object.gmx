@@ -607,6 +607,7 @@ if pause=1 &amp;&amp; spr!=-1{
         if string(_score)!=string_invert(pscore){
             show_message("Please no hacks  :)")
             _score=real(string_invert(pscore))
+            global.SubmitScores=false
         }
         if obj_tuthelp.tut=-1{
         /*

@@ -257,7 +257,7 @@ if os_type=os_android{
     if mouse_check_button2(cheatx/guiScale,cheaty/guiScale,(cheatx+cheatw)/guiScale,(cheaty+cheath)/guiScale){
         obj_control.CheatConsole=!obj_control.CheatConsole
         obj_pause.CheatConsole=obj_control.CheatConsole
-        obj_control.SubmitScores=false
+        global.SubmitScores=false
         obj_control.ConsoleX=1000
         obj_control.ConsoleY=1000
     }

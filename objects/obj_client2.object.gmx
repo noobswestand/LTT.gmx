@@ -1282,6 +1282,7 @@ if gun!=-1{
             case 5: img=spr_gun5 rot=0 gunxscale=0.25 gunyscale=0.25 if canshoot=0{subimg=1} break;
             case 6: img=spr_gun6 rot=0 gunxscale=0.25 gunyscale=0.25 break;
             case 8: img=spr_gun8 rot=0 gunxscale=0.4 gunyscale=0.4 if canshoot=0{subimg=1} break;
+            case 9: img=spr_gun5 rot=0 gunxscale=0.5 gunyscale=0.5 break;
             
         }
         
@@ -1441,18 +1442,24 @@ if gun!=-1{
             break;
             
             case 5:
-                draw_gun5(clamp(5-(BulletShoot/5),1,room_speed),dir,(obj_control.damagemult)+1,random(abs(-2/BulletCount)*5),obj_client2)//
+                draw_gun5(clamp(5-(BulletShoot/5),1,room_speed),dir,(obj_client2.damagemult)+1,random(abs(-2/BulletCount)*5),obj_client2)//
                 push=-.5
             break;
             case 6:
-                draw_gun6(5-(BulletShoot),dir,((obj_control.damagemult)+1)/15,random(abs(-2/BulletCount)*5),obj_client2)//
+                draw_gun6(5-(BulletShoot),dir,((obj_client2.damagemult)+1)/15,random(abs(-2/BulletCount)*5),obj_client2)//
                 push=0
             break;
             
             case 8:
-                draw_gun8(dir,(obj_control.damagemult)+1,obj_client2)
+                draw_gun8(dir,(obj_client2.damagemult)+1,obj_client2)
                 push=0
             break;
+            
+            case 9:
+                draw_gun9(clamp(5-(BulletShoot/5)*2,1,room_speed),dir,.5*obj_client2.damagemult,obj_client2)
+                push=.5
+            break;
+            
             
         }
         

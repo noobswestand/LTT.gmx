@@ -62,7 +62,7 @@ for(i=16;i<room_width/2;i+=16){
             randomize()
             //instance_create(room_width/2,((room_height-16)-starth),obj_control.gun2[irandom(obj_control.totalguns-1)])
             
-            instance_create(room_width/2,((room_height-16)-starth),choose(obj_gun0,obj_gun1,obj_gun3,obj_gun4,obj_gun2,obj_gun5,obj_gun6,obj_gun8))
+            instance_create(room_width/2,((room_height-16)-starth),choose(obj_gun0,obj_gun1,obj_gun3,obj_gun4,obj_gun2,obj_gun5,obj_gun6,obj_gun8,obj_gun9))
             //instance_create(room_width/2,((room_height-16)-starth),choose(obj_gun5))
             
             //global.gunheight=((room_height-16)-starth);
@@ -75,7 +75,7 @@ for(i=16;i<room_width/2;i+=16){
             nn=instance_create(i+8,(room_height-16)-starth-8,obj_monster0)
             nn=instance_create((room_width-16)-i+8,(room_height-16)-starth-8,obj_monster0)
         }
-        if irandom(3)=0{
+        if irandom(3)=0 && EASTER=true{
             if irandom(1){
                 nn=instance_create(i+8,(room_height-16)-starth-8,obj_egg)
             }else{

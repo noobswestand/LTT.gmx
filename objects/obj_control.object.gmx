@@ -41,7 +41,8 @@ money=0
 global.MoneyEarned=false
 global.FloorEarned=false
 ScoreMult=1
-pScoreMult=1
+ScoreMultEarn=false
+pScoreMult=string_invert("1")
 ScoreMultC=choose(c_white,c_red,c_blue,c_green,c_purple,c_orange,c_yellow)
 ScoreMultS=1
 ScoreMultR=0
@@ -52,7 +53,7 @@ ScoreC=0
 ScoreC2=11
 
 p_floor=0
-SubmitScores=true
+global.SubmitScores=true
 
 MoneyCheck=0
 
@@ -100,7 +101,7 @@ canshoot=true
 pcanShoot=true
 _cnsht=true
 
-totalguns=9
+totalguns=10
 gun1[0]="Lightning Gun"//name
 gun2[0]=obj_gun0
 gun3[0]=0.25//scale
@@ -189,6 +190,15 @@ gun6[8]=0
 gun7[8]=0
 gun8Speed=0
 
+gun1[9]="Turnip Gun"//name
+gun2[9]=obj_gun9
+gun3[9]=.5//scale
+gun4[9]=spr_gun10
+gun5[9]="Vote for turnip!"//name
+gun6[9]=0
+gun7[9]=0
+
+/*
 gun1[9]="Bouncer"//name
 gun2[9]=obj_gun8
 gun3[9]=1//scale
@@ -196,6 +206,8 @@ gun4[9]=spr_gun8
 gun5[9]=""//name
 gun6[9]=0
 gun7[9]=0
+*/
+
 
 gun1[10]="Plasma Coil"//name
 gun2[10]=obj_gun8
@@ -470,7 +482,7 @@ if (parameter_count() == 4) {
 
 
 
-for(i=0;i&lt;100;i++){
+for(i=0;i&lt;1000;i++){
     global.MonsterList[i]=-1//id
 }
 
@@ -828,14 +840,17 @@ if ScoreC&gt;11{
     if abs(round(Score/moneyCheckMult)-pScore2)&gt;ScoreMult*50{
         ScoreMult++
         ScoreC2=11
+        ScoreMultEarn=true
     }else{
         if ScoreC2&lt;0{
             if ScoreMult&gt;1{
                 ScoreMult--
                 ScoreC2=11
+                ScoreMultEarn=true
             }
         }else{
             ScoreC2-=1
+            
         }
     }
     pScore2=round(Score/moneyCheckMult)
@@ -1230,7 +1245,7 @@ if MoneyCheck!=money/moneyCheckMult{
         global.MoneyEarned=false
     }else{
         show_message("Cheater  ;)#Your scores will not be posted online")
-        SubmitScores=false
+        global.SubmitScores=false
         MoneyCheck=money/moneyCheckMult
     }
 }
@@ -1240,7 +1255,7 @@ if p_floor!=_floor/moneyCheckMult{
         global.FloorEarned=false
     }else{
         show_message("Cheater  ;)#Your scores will not be posted online")
-        SubmitScores=false
+        global.SubmitScores=false
         MoneyCheck=money/moneyCheckMult
     }
     p_floor=_floor/moneyCheckMult
@@ -1253,7 +1268,7 @@ global.FloorEarned=false
 if keyboard_check_pressed(vk_f12){
     CheatConsole=!CheatConsole
     obj_pause.CheatConsole=CheatConsole
-    SubmitScores=false
+    global.SubmitScores=false
 }
 
 </string>
@@ -1632,6 +1647,8 @@ if global.char=6 &amp;&amp; PlayerSlow&lt;PlayerSlowMax{
         }
     }
 }
+
+
 </string>
           </argument>
         </arguments>
@@ -1861,7 +1878,8 @@ if room!=rm_menu{
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>testVar="HTTP INSIDE";
+            <string>if global.SubmitScores=true{
+testVar="HTTP INSIDE";
 if ds_map_find_value(async_load, "id") == GetKeyValue2 &amp;&amp; obj_tuthelp.GeneralHighScore=true
     {
     var status = ds_map_find_value(async_load, "status");
@@ -1899,6 +1917,7 @@ if ds_map_find_value(async_load, "id") == SubmitScore
     if ds_map_find_value(async_load, "status") &gt;= 0
        {
        r_str = ds_map_find_value(async_load, "result");
+       show_message(r_str)
        if r_str="failed"{//show_message("Failed...")
             //do it again  :D
             GetKeyValue2=http_get_file(IP+"high_score.php?"+encrypt2("act")+"="+encrypt2("GetTime"),"prog.txt")
@@ -1906,7 +1925,7 @@ if ds_map_find_value(async_load, "id") == SubmitScore
        
        }
     }
-    
+}
     
 
 </string>
@@ -2285,7 +2304,7 @@ if view_current == 0
             <string>
 if room!=rm_menu{
     
-    scr_drawDead();
+    //scr_drawDead();
 
     scr_drawInterface();
 
@@ -2674,6 +2693,11 @@ if gun!=-1{
                 push=0
             break;
             
+            case 9:
+                draw_gun9(clamp(5-(BulletShoot/5)*2,1,room_speed),dir,.5*obj_control.damagemult,obj_player)
+                push=.5
+            break;
+            
             
         }
         
@@ -2898,8 +2922,10 @@ if global.death_start=true{
         }
     }
 }
-
-
+if room!=rm_menu{
+    
+    scr_drawDead();
+}
 
 ///////////////////////////////////////////POWERUP TEXT/////////////////////////////////////////////
 var Pyy=0;

@@ -150,7 +150,7 @@ for(i=0;i<3;i+=1){
                         game_restart()
                     break;    
                     case 1:
-                        SubmitScores=false
+                        global.SubmitScores=false
                         player_health=player_maxhealth
                         gunshovel=0
                         obj_player.canmove=true
@@ -198,7 +198,7 @@ for(i=0;i<3;i+=1){
                 game_restart()
             break;    
             case 1:
-                SubmitScores=false
+                global.SubmitScores=false
                 player_health=player_maxhealth
                 gunshovel=0
                 obj_player.canmove=true
