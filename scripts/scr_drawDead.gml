@@ -131,6 +131,9 @@ if player_health<=0 && global.ONLINE=false{
         draw_set_halign(fa_right)
         draw_text_ext_transformed(room_width-5,5,"Your score was not submitted",0,99999,0.5,0.5,0)
     }
+    if audio_is_playing(snd_laser){
+        audio_stop_sound(snd_laser)
+    }
     
     if alarm[4]=-1{
         /*

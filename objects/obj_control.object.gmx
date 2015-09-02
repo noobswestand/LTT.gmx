@@ -1917,7 +1917,7 @@ if ds_map_find_value(async_load, "id") == SubmitScore
     if ds_map_find_value(async_load, "status") &gt;= 0
        {
        r_str = ds_map_find_value(async_load, "result");
-       show_message(r_str)
+       //show_message(r_str)
        if r_str="failed"{//show_message("Failed...")
             //do it again  :D
             GetKeyValue2=http_get_file(IP+"high_score.php?"+encrypt2("act")+"="+encrypt2("GetTime"),"prog.txt")
@@ -2695,7 +2695,7 @@ if gun!=-1{
             
             case 9:
                 draw_gun9(clamp(5-(BulletShoot/5)*2,1,room_speed),dir,.5*obj_control.damagemult,obj_player)
-                push=.5
+                push=-.5
             break;
             
             

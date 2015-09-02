@@ -170,6 +170,9 @@ for(i=0;i<3;i+=1){
                         audio_stop_sound(snd_dead)
                         audio_resume_sound(obj_sound.currentMainSound)
                         with(par_monster){canmove=1}
+                        if instance_exists(obj_block3){
+                             global.keyGot=true
+                        }
                         view_xview=0
                         view_yview=0
                         view_wview=480
@@ -218,6 +221,9 @@ for(i=0;i<3;i+=1){
                 audio_stop_sound(snd_dead)
                 audio_resume_sound(obj_sound.currentMainSound)
                 with(par_monster){canmove=1}
+                if instance_exists(obj_block3){
+                     global.keyGot=true
+                }
                 view_xview=0
                 view_yview=0
                 view_wview=480

@@ -195,7 +195,7 @@ if canmove=true{
         playflame=true
     }
     if playflame=true &amp;&amp; !audio_is_playing(snd_laser){
-        audio_play_sound(snd_flamethrower,5,999)
+        audio_play_sound(snd_laser,5,999)
     }
     image_angle=dir_tron(image_angle, dir,  3);
     }else{

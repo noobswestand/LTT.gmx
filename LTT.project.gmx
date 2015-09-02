@@ -97,6 +97,14 @@
           <sound>sound\snd_lightSwing2</sound>
           <sound>sound\snd_lightSwing3</sound>
         </sounds>
+        <sounds name="turnup">
+          <sound>sound\snd_turnip5</sound>
+          <sound>sound\snd_turnip3</sound>
+          <sound>sound\snd_turnip2</sound>
+          <sound>sound\snd_turnip4</sound>
+          <sound>sound\snd_turnip1</sound>
+          <sound>sound\snd_turnip0</sound>
+        </sounds>
       </sounds>
       <sounds name="Interface">
         <sounds name="Menu">

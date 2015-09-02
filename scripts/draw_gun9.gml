@@ -2,7 +2,7 @@
 if argument[3]=obj_player{alarm[3]=5}else{alarm[4]=5}
 var dir=argument[1];
 
-//audio_play_sound(choose(snd_machine0,snd_machine1,snd_machine2,
+audio_play_sound(choose(snd_turnip0,snd_turnip1,snd_turnip2,snd_turnip3,snd_turnip4,snd_turnip5),0,0)
 //snd_machine3,snd_machine4,snd_machine5,snd_machine6),0,0)
 
 
