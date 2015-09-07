@@ -208,6 +208,50 @@ gamepad_set_vibration(0,0,0)
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (PauseDraw=false || pause=false) &amp;&amp; os_type=os_windows{
+    //show_debug_message(string(display_mouse_get_x())+","+string(display_mouse_get_y()))
+    
+    //keep mouse in view
+    if (display_mouse_get_x()-window_get_x()&lt;1){
+    	 display_mouse_set(window_get_x()+10,device_mouse_y_to_gui(0)+window_get_y());
+    }
+    if (display_mouse_get_x()-window_get_x()&gt;display_get_gui_width()){
+    	 display_mouse_set(window_get_x()+display_get_gui_width()-10,device_mouse_y_to_gui(0)+window_get_y());
+    } 
+    
+    if (display_mouse_get_y()-window_get_y()&lt;1){
+    	 display_mouse_set(device_mouse_x_to_gui(0)+window_get_x(),window_get_y()+10);
+    }
+    if (display_mouse_get_y()-window_get_y()&gt;display_get_gui_height()){
+    	 display_mouse_set(device_mouse_x_to_gui(0)+window_get_x(),window_get_y()+display_get_gui_height()-10);
+    } 
+    
+}
+
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
@@ -466,6 +510,7 @@ if global.AnsweredQuestion=true
 
 
 }
+
 </string>
           </argument>
         </arguments>
