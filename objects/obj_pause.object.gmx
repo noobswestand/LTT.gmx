@@ -225,22 +225,23 @@ gamepad_set_vibration(0,0,0)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (PauseDraw=false || pause=false) &amp;&amp; os_type=os_windows{
+            <string>if (PauseDraw=false || pause=false) &amp;&amp; os_type=os_windows
+&amp;&amp; window_get_fullscreen()=false{
     //show_debug_message(string(display_mouse_get_x())+","+string(display_mouse_get_y()))
     
     //keep mouse in view
     if (display_mouse_get_x()-window_get_x()&lt;1){
-    	 display_mouse_set(window_get_x()+10,device_mouse_y_to_gui(0)+window_get_y());
+     display_mouse_set(window_get_x()+10,device_mouse_y_to_gui(0)+window_get_y());
     }
     if (display_mouse_get_x()-window_get_x()&gt;display_get_gui_width()){
-    	 display_mouse_set(window_get_x()+display_get_gui_width()-10,device_mouse_y_to_gui(0)+window_get_y());
+     display_mouse_set(window_get_x()+display_get_gui_width()-10,device_mouse_y_to_gui(0)+window_get_y());
     } 
     
     if (display_mouse_get_y()-window_get_y()&lt;1){
-    	 display_mouse_set(device_mouse_x_to_gui(0)+window_get_x(),window_get_y()+10);
+     display_mouse_set(device_mouse_x_to_gui(0)+window_get_x(),window_get_y()+10);
     }
     if (display_mouse_get_y()-window_get_y()&gt;display_get_gui_height()){
-    	 display_mouse_set(device_mouse_x_to_gui(0)+window_get_x(),window_get_y()+display_get_gui_height()-10);
+     display_mouse_set(device_mouse_x_to_gui(0)+window_get_x(),window_get_y()+display_get_gui_height()-10);
     } 
     
 }
