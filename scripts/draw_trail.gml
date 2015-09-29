@@ -1,28 +1,43 @@
-/*
-Use in the Draw Event to draw the trail
-draw_trail(trail,w1,w2,c1,c2,a1,a2)
-Uses draw_line_width to draw lines between the points of the trail.
-Also uses draw_set_color() and draw_set_alpha(), so be sure to change the drawing color and alpha back to the desired values after calling the script if necessary
-*/
-
-var i;
-var (trail) = argument0; // name of trail
-var (w1) = argument1; // inner width
-var (w2) = argument2; // outer width
-var (c1) = argument3; // inner color
-var (c2) = argument4; // outer color
-var (a1) = argument5; // inner alpha
-var (a2) = argument6; // outer alpha
-var (traillength) = ds_grid_width(trail); // length of trail
-var (linewidth) = w1; // width of current section of trail
-
-// draw lines connecting all trail coordinates
-for(i=traillength-2; i>=0; i-=1)
-{
-    linewidth = w1*(traillength-1-i)/(traillength-1) + w2*(i+1)/(traillength-1); // set the width as the average of w1 and w2 weighted by the position in the trail
-    draw_set_color(merge_color(c2,c1,(traillength-1-i)/(traillength-1))); // set the color as the average of c1 and c2 weighted by the position in the trail
-    draw_set_alpha(a1*(traillength-1-i)/(traillength-1) + a2*(i+1)/(traillength-1)); // set the transparency as the average of a1 and a2 weighted by the position in the trail
-
-    if ((ds_grid_get(trail,i,0)!=ds_grid_get(trail,i+1,0) or ds_grid_get(trail,i,1)!=ds_grid_get(trail,i+1,1)) and (ds_grid_get(trail,i,0)!=-1000 or ds_grid_get(trail,i,1)!=-1000) and (ds_grid_get(trail,i+1,0)!=-1000 or ds_grid_get(trail,i+1,1)!=-1000)) // make sure that the either the x coordinates or the y coordinates are different, and that trail is not at (-1000,-1000) (which is how I demark trail "positions" not to be drawn)
-        {draw_line_width(ds_grid_get(trail,i,0),ds_grid_get(trail,i,1),ds_grid_get(trail,i+1,0),ds_grid_get(trail,i+1,1),linewidth);} // draw the line over the section of trail
+///draw_trail(length,width,color,sprite,slim,alpha)
+//Ex. draw_trail(32,32,c_white,-1,1,1)
+var Length,Width,Color,Sprite,Slim,Alpha,AlphaT,Texture,Dir,Min,Height;
+//Preparing variables
+Length = argument0; //How many previous coordinates will use the trail
+Width = argument1; //How wide will the trail be
+Color = argument2; //Which color will be used to tint the trail
+Sprite = argument3; //Which sprite's texture must be used for the trail. Must have "Used for 3D" marked. -1 for no sprite 
+Slim = argument4; //Whether the trail will slim down at the end
+Alpha = argument5; //The alpha to draw the trail with (0-1), optional
+ArrayTrail[0,0] = x;
+ArrayTrail[0,1] = y;
+Height = array_height_2d(ArrayTrail);
+//Getting distance between current and past coordinates
+if (Height > 1) ArrayTrail[0,2] = point_distance(ArrayTrail[0,0],ArrayTrail[0,1],ArrayTrail[1,0],ArrayTrail[1,1]) + ArrayTrail[1,2];
+else ArrayTrail[0,2] = 0;
+//Setting the texture
+if (Sprite >= 0) Texture = sprite_get_texture(Sprite,0);
+else Texture = -1;
+texture_set_repeat(1);
+//Drawing the primitive
+draw_primitive_begin_texture(pr_trianglestrip,Texture);
+AlphaT = 1;
+Dir = 0;
+Min = min(Height - 1,Length);
+for(var i = 0; i < Min; i++){
+  if (ArrayTrail[i,0] != ArrayTrail[i+1,0] || ArrayTrail[i,1] != ArrayTrail[i+1,1])
+    Dir = point_direction(ArrayTrail[i,0],ArrayTrail[i,1],ArrayTrail[i+1,0],ArrayTrail[i+1,1]);
+  var Len = Width / 2 - ((i + 1) / Min * Width / 2) * Slim;
+  var XX = lengthdir_x(Len,Dir + 90); 
+  var YY = lengthdir_y(Len,Dir + 90);
+  AlphaT = (Min - i) / (Min / 2) * Alpha;
+  draw_vertex_texture_color(ArrayTrail[i,0] + XX,ArrayTrail[i,1] + YY,ArrayTrail[i,2] / Width,0,Color,AlphaT);
+  draw_vertex_texture_color(ArrayTrail[i,0] - XX,ArrayTrail[i,1] - YY,ArrayTrail[i,2] / Width,1,Color,AlphaT);
+}
+draw_primitive_end();
+//Replacing the coordinates positions within the array
+Min = min(Height,Length);
+for (var i = Min; i > 0; i--){
+  ArrayTrail[i,0] = ArrayTrail[i - 1,0];
+  ArrayTrail[i,1] = ArrayTrail[i - 1,1];
+  ArrayTrail[i,2] = ArrayTrail[i - 1,2];
 }

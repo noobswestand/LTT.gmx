@@ -101,7 +101,7 @@ canshoot=true
 pcanShoot=true
 _cnsht=true
 
-totalguns=10
+totalguns=11
 gun1[0]="Lightning Gun"//name
 gun2[0]=obj_gun0
 gun3[0]=0.25//scale
@@ -198,6 +198,14 @@ gun5[9]="Vote for turnip!"//name
 gun6[9]=0
 gun7[9]=0
 
+gun1[10]="Anti-Matter Glove"//name
+gun2[10]=obj_gun10
+gun3[10]=.5//scale
+gun4[10]=spr_gun99
+gun5[10]="Shoots target seeking anti-matter mini missles"//name
+gun6[10]=0
+gun7[10]=0
+
 /*
 gun1[9]="Bouncer"//name
 gun2[9]=obj_gun8
@@ -206,7 +214,7 @@ gun4[9]=spr_gun8
 gun5[9]=""//name
 gun6[9]=0
 gun7[9]=0
-*/
+
 
 
 gun1[10]="Plasma Coil"//name
@@ -224,7 +232,7 @@ gun4[11]=spr_gun8
 gun5[11]="Shred your enemies to bits!"//name
 gun6[11]=0
 gun7[11]=0
-
+*/
 
 
 /*
@@ -2380,6 +2388,8 @@ if gun!=-1{
             img=spr_gun4 rot=0 gunxscale=0.4 gunyscale=0.4
         break;//plasma particle burst here
         
+        case 10: img=spr_gun0 rot=0 gunxscale=0 gunyscale=0 break;
+        
         default:
             img=gun4[gun];
             rot=gun6[gun]
@@ -2698,7 +2708,10 @@ if gun!=-1{
                 push=-.5
             break;
             
-            
+            case 10:
+                draw_gun10(clamp(5-(BulletShoot/5)*2,1,room_speed),dir,(obj_control.damagemult)+1,obj_player)
+                push=0
+            break;
         }
         
     //Push back
