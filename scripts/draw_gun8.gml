@@ -35,7 +35,16 @@ if gun8Speed>50{
 gun8Speed=dir
 if argument[2]=obj_player{
     if os_type=os_windows && global.GamePadMouse=0{
-        window_mouse_set((argument[2].x*2)+lengthdir_x(20,dir),(argument[2].y*2)+lengthdir_y(20,dir))
+        if window_get_fullscreen()=false{
+            window_mouse_set((argument[2].x*2)+lengthdir_x(20,dir),(argument[2].y*2)+lengthdir_y(20,dir))
+        }else{
+            /*  I give up
+            var ww,hh;
+            ww=3*(display_get_gui_width()/480);
+            hh=3*(display_get_gui_height()/272);
+            window_mouse_set((argument[2].x*ww)+lengthdir_x(20,dir),(argument[2].y*hh)+lengthdir_y(20,dir))
+            */
+        }
     }
 }else{
     //show_debug_message(string(argument[2])+"   "+string(obj_player))

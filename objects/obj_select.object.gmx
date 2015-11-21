@@ -1052,6 +1052,10 @@ for(i=1;i&lt;maxselect+1;i+=1){
     draw_sprite_ext(person[i,2],0,xxoff+((room_width/2)-1*person[i,3])+person[i,4],yy-(1*person[i,3])+person[i,5],
     person[i,3]*7,person[i,3]*7,0,c_white,person[i,6])
     
+    draw_sprite_ext(spr_santahat2,0,xxoff+((room_width/2)-(15*person[i,3]))+person[i,4],yy-(40*person[i,3])+person[i,5],
+    person[i,3]*7,person[i,3]*7,0,c_white,person[i,6])
+    
+    
     //draw lock
     if person[i,7]=0{
         draw_set_color(c_dkgray)
@@ -1346,6 +1350,9 @@ for(i=1;i&lt;maxselect2+1;i+=1){
     xxoff+((room_width/2)+64*Wperson[i,3])+Wperson[i,4],yy+(96*Wperson[i,3])+Wperson[i,5],false)
     
     draw_sprite_ext(Wperson[i,2],0,xxoff+((room_width/2)-1*Wperson[i,3])+Wperson[i,4],yy-(1*Wperson[i,3])+Wperson[i,5],
+    Wperson[i,3]*7,Wperson[i,3]*7,0,c_white,Wperson[i,6])
+    
+    draw_sprite_ext(spr_santahat2,0,xxoff+((room_width/2)-(15*Wperson[i,3]))+Wperson[i,4],yy-(40*Wperson[i,3])+Wperson[i,5],
     Wperson[i,3]*7,Wperson[i,3]*7,0,c_white,Wperson[i,6])
     
     //draw lock

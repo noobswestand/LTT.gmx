@@ -62,7 +62,7 @@ for(i=16;i<room_width/2;i+=16){
             randomize()
             //instance_create(room_width/2,((room_height-16)-starth),obj_control.gun2[irandom(obj_control.totalguns-1)])
             
-            instance_create(room_width/2,((room_height-16)-starth),choose(obj_gun0,obj_gun1,obj_gun3,obj_gun4,obj_gun2,obj_gun5,obj_gun6,obj_gun8,obj_gun9))
+            instance_create(room_width/2,((room_height-16)-starth),choose(obj_gun0,obj_gun1,obj_gun3,obj_gun4,obj_gun2,obj_gun5,obj_gun6,obj_gun8,obj_gun9,obj_gun10))
             //instance_create(room_width/2,((room_height-16)-starth),choose(obj_gun5))
             
             //global.gunheight=((room_height-16)-starth);

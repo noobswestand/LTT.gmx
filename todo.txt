@@ -1,3 +1,13 @@
+-Make critical hits have more of an impact
+	-visual
+	-audio
+	-replace text with big number
+	-make it like 15 times the damage
+
+
+
+
+
 ratchet and clank weapons
 
 plasma whip (http://ratchet.wikia.com/wiki/Plasma_Whip)

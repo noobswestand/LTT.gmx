@@ -504,6 +504,7 @@ switch(step){
         draw_set_alpha(1)
         draw_rectangle(0,(room_height/2)+20,room_width,room_height,false)
         draw_sprite_ext(spr_couch,0,(room_width/2)-playerx,(room_height/2)-5,2.5,2.5,0,c_white,1)
+        draw_sprite_ext(spr_chrtTree,0,(room_width/2),room_height/2+18,.75,.75,0,c_white,1)
         if CHRISTMAS=false{
             draw_sprite_ext(spr_fist0,img0,(room_width/2)-15+playerx,room_height/2,2,2,0,c_white,1)
             draw_sprite_ext(spr_fist1,img1,(room_width/2)+13-playerx,room_height/2,2,2,0,c_white,1)

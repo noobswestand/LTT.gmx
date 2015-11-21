@@ -1252,7 +1252,7 @@ if MoneyCheck!=money/moneyCheckMult{
         MoneyCheck=money/moneyCheckMult
         global.MoneyEarned=false
     }else{
-        show_message("Cheater  ;)#Your scores will not be posted online")
+        //show_message("Cheater  ;)#Your scores will not be posted online")
         global.SubmitScores=false
         MoneyCheck=money/moneyCheckMult
     }
@@ -1262,7 +1262,7 @@ if p_floor!=_floor/moneyCheckMult{
         MoneyCheck=money/moneyCheckMult
         global.FloorEarned=false
     }else{
-        show_message("Cheater  ;)#Your scores will not be posted online")
+        //show_message("Cheater  ;)#Your scores will not be posted online")
         global.SubmitScores=false
         MoneyCheck=money/moneyCheckMult
     }

@@ -227,6 +227,8 @@ gamepad_set_vibration(0,0,0)
             <kind>1</kind>
             <string>if (PauseDraw=false || pause=false) &amp;&amp; os_type=os_windows
 &amp;&amp; window_get_fullscreen()=false{
+    if instance_exists(obj_control) &amp;&amp; (obj_control.player_health&lt;=0 &amp;&amp; global.ONLINE=false){exit}
+    
     //show_debug_message(string(display_mouse_get_x())+","+string(display_mouse_get_y()))
     
     //keep mouse in view

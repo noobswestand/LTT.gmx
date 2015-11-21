@@ -420,6 +420,7 @@
     <sprite>sprites\spr_blood</sprite>
     <sprite>sprites\spr_gore</sprite>
     <sprite>sprites\spr_wan</sprite>
+    <sprite>sprites\spr_chrtTree</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\background1</background>
@@ -867,7 +868,7 @@
     <constant name="ONLINE2">0</constant>
     <constant name="SERVERIP">"127.0.0.1"</constant>
     <constant name="SERVERPORT">1224</constant>
-    <constant name="CHRISTMAS">0</constant>
+    <constant name="CHRISTMAS">1</constant>
     <constant name="DUBSTEP">0</constant>
     <constant name="NOINTERFACE">0</constant>
     <constant name="QUICKTEST">0</constant>
